@@ -1,0 +1,9 @@
+digraph G { rankdir=LR; fontname="Arial"; node [fontname="Arial", fontsize=11]; edge [fontname="Arial", fontsize=9];
+ subgraph cluster_a { label="API Raízes do Nordeste"; style=rounded; node [shape=ellipse, style=filled, fillcolor="#FFF4DC"];
+  uc1 [label="Cadastrar-se /\nAutenticar"]; uc2 [label="Consultar cardápio\nda unidade"]; uc3 [label="Realizar pedido"]; uc4 [label="Solicitar pagamento"];
+  uc5 [label="Cancelar pedido"]; uc6 [label="Consultar pontos /\nconsentimento"]; uc7 [label="Atualizar status\n(PRONTO)"]; uc8 [label="Registrar entrega\n(ENTREGUE)"];
+  uc9 [label="Movimentar estoque"]; uc10 [label="Gerir produtos, unidades\ne promoções"]; uc11 [label="Consultar pedidos\npor canal"]; uc12 [label="Consultar auditoria"]; }
+ node [shape=box, style=filled, fillcolor="#DDEBF7"];
+ cli [label="Cliente\n(App/Web/Totem)"]; ate [label="Atendente\n(Balcão)"]; coz [label="Cozinha"]; ger [label="Gerente /\nAdministrador"]; gw [label="Gateway de Pagamento\n(sistema externo)", fillcolor="#E2F0D9"];
+ cli -> {uc1 uc2 uc3 uc4 uc5 uc6}; ate -> {uc3 uc8 uc5 uc11}; coz -> uc7; ger -> {uc9 uc10 uc11 uc12}; uc4 -> gw;
+ uc3 -> uc2 [style=dashed, label="«include»"]; uc4 -> uc3 [style=dashed, label="«extend»"]; }

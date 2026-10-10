@@ -1,0 +1,22 @@
+classDiagram
+  class Usuario { Long id; String email; String senhaHash; Perfil perfil; boolean consentimentoLgpd; boolean consentimentoFidelidade; anonimizar() }
+  class Unidade { Long id; String nome; String cidade; boolean ativa }
+  class Produto { Long id; String nome; BigDecimal preco; boolean ativo }
+  class Estoque { int quantidade; baixar(int) ; repor(int) ; disponivel() }
+  class Pedido { Long id; CanalPedido canalPedido; StatusPedido status; BigDecimal total; adicionarItem(); calcularSubtotal(); transicionarPara() }
+  class ItemPedido { int quantidade; BigDecimal precoUnitario; subtotal() }
+  class Pagamento { StatusPagamento status; String referenciaExterna; String payloadGateway }
+  class Promocao { String codigo; BigDecimal percentualDesconto; vigente() }
+  class MovimentoFidelidade { TipoFidelidade tipo; int pontos }
+  class StatusPedido { <<enumeration>> AGUARDANDO_PAGAMENTO EM_PREPARO PRONTO ENTREGUE CANCELADO }
+  class CanalPedido { <<enumeration>> APP TOTEM BALCAO PICKUP WEB }
+  Usuario "1" --> "*" Pedido
+  Unidade "1" --> "*" Pedido
+  Pedido "1" *-- "1..*" ItemPedido
+  Produto "1" --> "*" ItemPedido
+  Unidade "1" --> "*" Estoque
+  Produto "1" --> "*" Estoque
+  Pedido "1" --> "*" Pagamento
+  Usuario "1" --> "*" MovimentoFidelidade
+  Pedido --> StatusPedido
+  Pedido --> CanalPedido

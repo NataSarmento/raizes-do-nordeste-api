@@ -1,0 +1,28 @@
+sequenceDiagram
+  actor C as Cliente (TOTEM)
+  participant API as PedidoController / PagamentoController
+  participant PS as PedidoService
+  participant ES as Estoque (DB, lock)
+  participant PG as PagamentoService
+  participant GW as Gateway mock
+  C->>API: POST /pedidos (JWT, canalPedido=TOTEM)
+  API->>PS: criar()
+  PS->>ES: bloqueia linha e baixa estoque
+  alt estoque insuficiente
+    PS-->>C: 409 CONFLITO
+  else ok
+    PS-->>C: 201 AGUARDANDO_PAGAMENTO
+  end
+  C->>API: POST /pagamentos {pedidoId}
+  API->>PG: pagar()
+  PG->>GW: cobrar(valor) — até 2 tentativas
+  alt aprovado
+    GW-->>PG: APPROVED + payload
+    PG-->>C: 201 (pedido EM_PREPARO, pontos acumulados)
+  else recusado
+    GW-->>PG: DECLINED
+    PG->>PS: cancelarInterno (devolve estoque)
+    PG-->>C: 402 (pedido CANCELADO)
+  else indisponível
+    PG-->>C: 202 PENDENTE (pedido mantido)
+  end

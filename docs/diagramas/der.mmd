@@ -1,0 +1,63 @@
+erDiagram
+  USUARIOS ||--o{ PEDIDOS : realiza
+  UNIDADES ||--o{ PEDIDOS : recebe
+  PEDIDOS ||--|{ ITENS_PEDIDO : contem
+  PRODUTOS ||--o{ ITENS_PEDIDO : "vendido em"
+  UNIDADES ||--o{ ESTOQUES : possui
+  PRODUTOS ||--o{ ESTOQUES : "saldo em"
+  UNIDADES ||--o{ MOVIMENTOS_ESTOQUE : registra
+  PRODUTOS ||--o{ MOVIMENTOS_ESTOQUE : movimenta
+  PEDIDOS ||--o{ PAGAMENTOS : "tentativas de"
+  USUARIOS ||--o{ MOVIMENTOS_FIDELIDADE : acumula
+
+  USUARIOS { bigint id PK
+    varchar email UK
+    varchar senha_hash
+    varchar perfil
+    boolean consentimento_lgpd
+    timestamp consentimento_lgpd_em
+    boolean consentimento_fidelidade }
+  UNIDADES { bigint id PK
+    varchar nome
+    varchar cidade
+    boolean ativa }
+  PRODUTOS { bigint id PK
+    varchar nome
+    varchar categoria
+    numeric preco
+    boolean ativo }
+  ESTOQUES { bigint id PK
+    bigint unidade_id FK
+    bigint produto_id FK
+    int quantidade "CHECK >= 0; UK(unidade_id, produto_id)" }
+  MOVIMENTOS_ESTOQUE { bigint id PK
+    bigint unidade_id FK
+    bigint produto_id FK
+    varchar tipo "ENTRADA|SAIDA"
+    int quantidade
+    bigint pedido_id }
+  PEDIDOS { bigint id PK
+    bigint cliente_id FK
+    bigint unidade_id FK
+    varchar canal_pedido "APP|TOTEM|BALCAO|PICKUP|WEB"
+    varchar status
+    numeric subtotal
+    numeric desconto
+    numeric total
+    varchar idempotency_key UK }
+  ITENS_PEDIDO { bigint id PK
+    bigint pedido_id FK
+    bigint produto_id FK
+    int quantidade
+    numeric preco_unitario }
+  PAGAMENTOS { bigint id PK
+    bigint pedido_id FK
+    varchar status "APROVADO|RECUSADO|PENDENTE"
+    numeric valor
+    varchar referencia_externa
+    varchar payload_gateway }
+  MOVIMENTOS_FIDELIDADE { bigint id PK
+    bigint usuario_id FK
+    varchar tipo "ACUMULO|RESGATE|ESTORNO"
+    int pontos
+    bigint pedido_id }

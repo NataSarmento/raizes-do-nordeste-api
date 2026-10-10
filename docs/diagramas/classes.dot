@@ -1,0 +1,17 @@
+digraph C { rankdir=LR; fontname="Arial"; node [shape=record, fontname="Arial", fontsize=10, style=filled, fillcolor="#FFFFF0"]; edge [fontname="Arial", fontsize=9];
+Usuario [label="{Usuario|id; email; senhaHash; perfil\lconsentimentoLgpd\lconsentimentoFidelidade\l|anonimizar()\l}"];
+Unidade [label="{Unidade|id; nome; cidade; ativa\l}"];
+Produto [label="{Produto|id; nome; preco; ativo\l}"];
+Estoque [label="{Estoque|quantidade\l|baixar(qtd)\lrepor(qtd)\ldisponivel()\l}"];
+Pedido [label="{Pedido|id; canalPedido; status\lsubtotal; desconto; total\lidempotencyKey\l|adicionarItem()\lcalcularSubtotal()\ltransicionarPara(status)\l}"];
+ItemPedido [label="{ItemPedido|quantidade; precoUnitario\l|subtotal()\l}"];
+Pagamento [label="{Pagamento|status; valor\lreferenciaExterna\lpayloadGateway\l}"];
+Promocao [label="{Promocao|codigo; percentualDesconto\lvalidaAte\l|vigente()\l}"];
+MovFid [label="{MovimentoFidelidade|tipo; pontos\l}"];
+Status [label="{«enumeration»\nStatusPedido|AGUARDANDO_PAGAMENTO\lEM_PREPARO\lPRONTO\lENTREGUE\lCANCELADO\l}", fillcolor="#E2F0D9"];
+Canal [label="{«enumeration»\nCanalPedido|APP\lTOTEM\lBALCAO\lPICKUP\lWEB\l}", fillcolor="#E2F0D9"];
+Usuario -> Pedido [label="1..N", arrowhead=none]; Unidade -> Pedido [label="1..N", arrowhead=none];
+Pedido -> ItemPedido [label="1..N (composição)", arrowhead=diamond, dir=back]; Produto -> ItemPedido [label="1..N", arrowhead=none];
+Unidade -> Estoque [label="1..N", arrowhead=none]; Produto -> Estoque [label="1..N", arrowhead=none];
+Pedido -> Pagamento [label="1..N", arrowhead=none]; Usuario -> MovFid [label="1..N", arrowhead=none];
+Pedido -> Status [style=dashed]; Pedido -> Canal [style=dashed]; Pedido -> Promocao [style=dashed, label="aplica código"]; }
