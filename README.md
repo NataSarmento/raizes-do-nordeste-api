@@ -3,8 +3,8 @@
 API REST (Java 17 + Spring Boot 3) da rede de restaurantes **Raízes do Nordeste**: pedidos multicanal, estoque por unidade,
 pagamento externo (mock), fidelização com consentimento, autenticação JWT por perfil, auditoria e LGPD.
 
-- **Aluno:** Natã Sarmento da Silva — RU: `<seu RU>`
-- **Repositório:** `<link público do repositório>`
+- **Aluno:** Natã Sarmento da Silva — RU: 4973244
+- **Repositório:** https://github.com/NataSarmento/raizes-do-nordeste-api
 - **Swagger local:** http://localhost:8080/swagger-ui.html (JSON em `/v3/api-docs`)
 - **Coleção Postman:** `postman/raizes-do-nordeste.postman_collection.json`
 - **Relatório (PDF):** `docs/RELATORIO.md` → exportado como `<RU>_Projeto_Back_End.PDF`
