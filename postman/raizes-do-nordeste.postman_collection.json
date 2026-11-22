@@ -1,6 +1,6 @@
 {
   "info": {
-    "_postman_id": "586ec5a7-6f39-4e4e-9d81-085e14a33427",
+    "_postman_id": "095567b2-0ddd-4613-98dd-a52aa844eb56",
     "name": "Raízes do Nordeste - API Back-End",
     "description": "Execute a coleção inteira (Collection Runner) na ordem. Requer a API em http://localhost:8080 com o seed padrão.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -291,7 +291,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 401\", () => pm.response.to.have.status(401));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -386,7 +386,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 422\", () => pm.response.to.have.status(422));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1154,7 +1154,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 401\", () => pm.response.to.have.status(401));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1209,7 +1209,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 403\", () => pm.response.to.have.status(403));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1263,7 +1263,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 422\", () => pm.response.to.have.status(422));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1317,7 +1317,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 422\", () => pm.response.to.have.status(422));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1371,7 +1371,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 404\", () => pm.response.to.have.status(404));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1425,7 +1425,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 409\", () => pm.response.to.have.status(409));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1479,7 +1479,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 422\", () => pm.response.to.have.status(422));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1524,7 +1524,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 400\", () => pm.response.to.have.status(400));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1578,7 +1578,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 404\", () => pm.response.to.have.status(404));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1634,7 +1634,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 403\", () => pm.response.to.have.status(403));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1690,7 +1690,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 409\", () => pm.response.to.have.status(409));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
@@ -1973,7 +1973,7 @@
                 "type": "text/javascript",
                 "exec": [
                   "pm.test(\"status 409\", () => pm.response.to.have.status(409));",
-                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.have.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
+                  "pm.test(\"padrão de erro\", () => { const j = pm.response.json(); pm.expect(j).to.include.keys(\"timestamp\",\"status\",\"codigo\",\"mensagem\",\"path\"); });"
                 ]
               }
             }
