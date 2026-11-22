@@ -7,7 +7,7 @@ pagamento externo (mock), fidelização com consentimento, autenticação JWT po
 - **Repositório:** https://github.com/NataSarmento/raizes-do-nordeste-api
 - **Swagger local:** http://localhost:8080/swagger-ui.html (JSON em `/v3/api-docs`)
 - **Coleção Postman:** `postman/raizes-do-nordeste.postman_collection.json`
-- **Relatório (PDF):** `docs/RELATORIO.md` → exportado como `<RU>_Projeto_Back_End.PDF`
+- **Relatório (PDF):** `docs/4973244_Projeto_Back_End.PDF`
 
 ## 1. Requisitos
 | Item | Versão |
